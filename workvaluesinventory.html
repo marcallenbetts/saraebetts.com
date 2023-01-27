@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Work Values Inventory</title>
     <style>
-      .title {
-        color: black;
-        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
-        font-size: larger;
-      }
-      .dimension-select {
-        padding: 10pt;
+      * {
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
           sans-serif;
         font-size: large;
       }
+      body {
+        padding: 50pt;
+      }
+      .title {
+        font-size: larger;
+      }
+      .dimension-select {
+        padding: 10pt;
+        font-size: large;
+      }
       .score {
         padding: 10pt;
-        color: black;
-        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
         font-size: large;
       }
     </style>
@@ -270,8 +271,74 @@
     </script>
   </head>
   <body onload="loadDimensions()">
+    <div class="description">
+      <h1>Work Values Inventory</h1>
+      <p>
+        Psychologist and career theorist Donald J. Super’s work was concerned
+        primarily with the development of a person’s self-concept as it relates
+        to their career choices. The values you have toward careers and work, he
+        said, will impact how you make decisions about which jobs to pursue, as
+        well as why you leave jobs. Super also believed that we all go through
+        various stages of development throughout our lives in which we
+        prioritize different things. Your values are important to consider when
+        making educational and career choices, because it is stressful to work
+        at a place that is not consistent with what is personally important to
+        you. This assignment will help you identify the values that are
+        important to you in a job/career and help your Career Navigators when
+        they are assisting you with employment opportunities.
+      </p>
+      <p>
+        Understand that these values may change and shift over time and
+        depending on circumstance, and you may want/need to revisit them on
+        occasion to gain a better understanding of what is important to you in
+        the job search. Please feel free to reach out to your Career Navigator
+        to obtain a new copy of this form when needed.
+      </p>
+      <h1>Value Descriptions</h1>
+      <ul>
+        <li>
+          Creativity: Work that permits one to invent new things, design new
+          products, or develop new ideas.
+        </li>
+        <li>
+          Management: Work that permits one to plan and lay out work for others.
+        </li>
+        <li>Achievement: Work that gives one the feeling of accomplishment.</li>
+        <li>Surroundings: Work that is carried out in pleasant conditions.</li>
+        <li>
+          Supervisory Relationships: Work that is carried out under a supervisor
+          who is fair, supportive, and with whom you get along.
+        </li>
+        <li>
+          Way of Life: Work that permits one to live the kind of life he/she
+          chooses and to be the type of person he/she wishes to be.
+        </li>
+        <li>
+          Security: Work that provides one with the certainty of having a job,
+          even in difficult economic times.
+        </li>
+        <li>
+          Co-Workers: Work that connects one with fellow workers who are liked.
+        </li>
+        <li>
+          Aesthetic: Work that permits one to be surrounded by beautiful things
+          and contribute beauty to the world.
+        </li>
+        <li>Prestige: Work that gives one standing in the eyes of others.</li>
+      </ul>
+    </div>
+
     <div>
-      <div class="title">Dimensions</div>
+      <h1>Instructions</h1>
+      <p>
+        Rank each statement using the drop-down menu; a “1” means “unimportant,”
+        while a “5” means “very important.” For example, the first statement is,
+        “Have to keep solving problems.” If this is something you value highly
+        in your work, you would rank it as a “5.” After you rank all of the
+        statements, you will see a series of values with your score next to
+        each. The higher your score for a value, the more important it is to you
+        in your work.
+      </p>
       <div id="dimensions"></div>
     </div>
     <button onclick="calculateScore()">Score</button>
