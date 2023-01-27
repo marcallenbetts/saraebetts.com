@@ -239,32 +239,78 @@
       const calculateScore = () => {
         document.getElementById("scores").innerHTML = "";
         let scores = {
-          creativity: 0,
-          management: 0,
-          achievement: 0,
-          surroundings: 0,
-          supervisoryRelationships: 0,
-          wayOfLife: 0,
-          security: 0,
-          coworkers: 0,
-          aesthetic: 0,
-          prestige: 0,
-          independence: 0,
-          variety: 0,
-          economicReturn: 0,
-          altruism: 0,
-          intellectualStimulation: 0,
+          creativity: {
+            value: 0,
+            label: "Creativty",
+          },
+          management: {
+            value: 0,
+            label: "Management",
+          },
+          achievement: {
+            value: 0,
+            label: "Achievement",
+          },
+          surroundings: {
+            value: 0,
+            label: "Surroundings",
+          },
+          supervisoryRelationships: {
+            value: 0,
+            label: "Supervisory Relationships",
+          },
+          wayOfLife: {
+            value: 0,
+            label: "Way of Life",
+          },
+          security: {
+            value: 0,
+            label: "Security",
+          },
+          coworkers: {
+            value: 0,
+            label: "Coworkers",
+          },
+          aesthetic: {
+            value: 0,
+            label: "Aesthetic",
+          },
+          prestige: {
+            value: 0,
+            label: "Prestige",
+          },
+          independence: {
+            value: 0,
+            label: "Independence",
+          },
+          variety: {
+            value: 0,
+            label: "Variety",
+          },
+          economicReturn: {
+            value: 0,
+            label: "Economic Return",
+          },
+          altruism: {
+            value: 0,
+            label: "Altruism",
+          },
+          intellectualStimulation: {
+            value: 0,
+            label: "Intellectual Stimulation",
+          },
         };
 
         dimensions.forEach((d) => {
           const e = document.getElementById(d.id);
           const value = e.options[e.selectedIndex].text;
-          scores[d.value] += parseInt(value) || 0;
+          scores[d.value].value += parseInt(value) || 0;
         });
 
         Object.keys(scores).forEach((key) => {
+          console.log(JSON.stringify(scores[key]));
           document.getElementById("scores").innerHTML += `
-            <div class="score">${key}: ${scores[key]}</div>
+            <div class="score">${scores[key].label}: ${scores[key].value}</div>
           `;
         });
       };
