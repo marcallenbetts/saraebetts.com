@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mindset Quiz</title>
+    <style>
+      * {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: large;
+      }
+      body {
+        padding: 50pt;
+      }
+      .title {
+        font-size: larger;
+      }
+      .dimension-select {
+        padding: 10pt;
+        font-size: large;
+      }
+      .score {
+        padding: 10pt;
+        font-size: large;
+      }
+      th,
+      td {
+        padding: 15px;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WT923X6H08"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-WT923X6H08");
+    </script>
+    <script>
+      window.onload = () =>
+        (document.getElementById(
+          "copyright"
+        ).innerText = `Coming soon. Copyright ${new Date().getFullYear()}.`);
+    </script>
+
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "https://www.google-analytics.com/analytics.js",
+        "ga"
+      );
+
+      ga("create", "", "auto");
+      ga("send", "pageview");
+    </script>
+    <script>
+      const statements = [
+        {
+          id: "1",
+          dimension:
+            "Your intelligence is something very basic about you that you can't change very much",
+          reverse: false,
+        },
+        {
+          id: "2",
+          dimension:
+            "No matter how much intelligence you have you can always change it quite a bit",
+          reverse: true,
+        },
+        {
+          id: "3",
+          dimension:
+            "Only a few people will be truly good at sports you have to be born with the ability",
+          reverse: false,
+        },
+        {
+          id: "4",
+          dimension: "The harder you work at something the better you will be",
+          reverse: true,
+        },
+        {
+          id: "5",
+          dimension:
+            "I often get angry when I get feedback about my performance",
+          reverse: false,
+        },
+        {
+          id: "6",
+          dimension:
+            "I appreciate when people, parents, coaches or teachers give me feedback about my performance",
+          reverse: true,
+        },
+        {
+          id: "7",
+          dimension: "Truly smart people do not need to try hard",
+          reverse: false,
+        },
+        {
+          id: "8",
+          dimension: "You can always change how intelligent you are",
+          reverse: true,
+        },
+        {
+          id: "9",
+          dimension:
+            "You are a certain kind of person and there is not much that can be done to really change that",
+          reverse: false,
+        },
+        {
+          id: "10",
+          dimension:
+            "An important reason why I do my school work is that I enjoy learning new things",
+          reverse: true,
+        },
+      ];
+
+      const loadStatements = () => {
+        statements.forEach((s) => {
+          let table = document.getElementById("statements-table");
+          let row = table.insertRow(table.rows.length);
+          let statementCell = row.insertCell(0);
+          statementCell.innerHTML = `${s.dimension}`;
+          let buttonCell = row.insertCell(1);
+          let values = s.reverse ? [3, 2, 1, 0] : [0, 1, 2, 3];
+          buttonCell.innerHTML = `
+          <form id=${s.id}>
+            <label for="${s.id}"><input type="radio" id="${s.id}_strongly_agree" name="${s.id}" value=${values[0]}>Strongly Agree</label>
+            <label for="${s.id}"><input type="radio" id="${s.id}_agree" name="${s.id}" value=${values[1]}>Agree</label>
+            <label for="${s.id}"><input type="radio" id="${s.id}_disagree" name="${s.id}" value=${values[2]}>Disagree</label>
+            <label for="${s.id}"><input type="radio" id="${s.id}_strongly_disagree" name="${s.id}" value=${values[3]}>Strongly Disagree</label><br>
+          </form>
+          `;
+        });
+      };
+
+      const calculateScore = () => {
+        document.getElementById("score").innerHTML = "";
+
+        const score = statements.reduce((acc, s) => {
+          let checked = [...document.getElementsByName(`${s.id}`)].find(
+            (e) => e.checked
+          );
+
+          let value = checked == undefined ? 0 : parseInt(checked.value);
+
+          return acc + value;
+        }, 0);
+
+        document.getElementById("score").innerHTML = `<p>Your score is ${score}</p>`;
+        // document.getElementById("score").innerHTML = score;
+      };
+    </script>
+  </head>
+  <body onload="loadStatements()">
+    <div class="description">
+      <h1>Work Values Inventory</h1>
+      <p>1. Circle the number for each question which best describes you</p>
+      <p>
+        2. Total and record your score when you have completed each of the 10
+        questions
+      </p>
+      <p>3. Using the SCORE chart, record your mindset</p>
+    </div>
+
+    <div>
+      <div id="statements">
+        <table id="statements-table">
+          <tr>
+            <th>Statements</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <button onclick="calculateScore()">Score</button>
+    <div id="score"></div>
+    <div id="score-chart">
+      <table>
+        <tr>
+          <th><b>Score Chart</th>
+        </tr>
+        <tr>
+          <td><b>22-30</b> - Strong Growth Mindset</td>
+        </tr>
+        <tr>
+          <td><b>17-21</b> - Growth with some fixed ideas</td>
+        </tr>
+        <tr>
+          <td><b>11-16</b> - Fixed with some growth ideas/td>
+        </tr>
+        <tr>
+          <td><b>0-10</b> - Strong fixed mindset</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <br /><br /><br />
+      <p>
+        Adapted from: Dweck, C. S. (2006).
+        <em>Mindset: The new psychology of success.</em> New York: Random House
+        Inc.
+      </p>
+    </div>
+  </body>
+</html>
