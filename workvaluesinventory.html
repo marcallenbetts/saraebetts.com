@@ -61,6 +61,38 @@
       ga("send", "pageview");
     </script>
     <script>
+      
+
+      
+
+      const loadValueDescriptions = () => {
+        const valueDescriptions = [
+          "Creativity: Work that permits one to invent new things, design new products, or develop new ideas.",
+          "Management: Work that permits one to plan and lay out work for others.",
+          "Achievement: Work that gives one the feeling of accomplishment.",
+          "Surroundings: Work that is carried out in pleasant conditions.",
+          "Supervisory Relationships: Work that is carried out under a supervisor who is fair, supportive, and with whom you get along.",
+          "Way of Life: Work that permits one to live the kind of life he/she chooses and to be the type of person he/she wishes to be.",
+          "Security: Work that provides one with the certainty of having a job, even in difficult economic times.",
+          "Coworkers: Work that connects one with fellow workers who are liked.",
+          "Aesthetic: Work that permits one to be surrounded by beautiful things and contribute beauty to the world.",
+          "Prestige: Work that gives one standing in the eyes of others.",
+          "Independence: Work that permits one to work in his/her own way, as fast or slow as he/she wishes.",
+          "Variety: Work that provides an opportunity to do different types of tasks.",
+          "Economic Return: Work that pays well and enables one one to have the things he/she wants.",
+          "Altruism: Work that enables one to contribute to the welfare of others.",
+          "Intellectual Stimulation: Work that provides opportunity for independent thinking and for learning how and why things work."
+        ];
+
+        const valueDescriptionList = document.getElementById('value_descriptions');
+
+        valueDescriptions.forEach(value => {
+          const li = document.createElement('li');
+          li.textContent = value;
+          valueDescriptionList.appendChild(li);
+        });
+      };
+
       const dimensions = [
         {
           id: "1",
@@ -351,9 +383,14 @@
           `;
         });
       };
+
+      const loadData = () => {
+        loadValueDescriptions();
+        loadDimensions();
+      };
     </script>
   </head>
-  <body onload="loadDimensions()">
+  <body onload="loadData()">
     <div class="description">
       <h1>Work Values Inventory</h1>
       <p>
@@ -378,37 +415,7 @@
         to obtain a new copy of this form when needed.
       </p>
       <h1>Value Descriptions</h1>
-      <ul>
-        <li>
-          Creativity: Work that permits one to invent new things, design new
-          products, or develop new ideas.
-        </li>
-        <li>
-          Management: Work that permits one to plan and lay out work for others.
-        </li>
-        <li>Achievement: Work that gives one the feeling of accomplishment.</li>
-        <li>Surroundings: Work that is carried out in pleasant conditions.</li>
-        <li>
-          Supervisory Relationships: Work that is carried out under a supervisor
-          who is fair, supportive, and with whom you get along.
-        </li>
-        <li>
-          Way of Life: Work that permits one to live the kind of life he/she
-          chooses and to be the type of person he/she wishes to be.
-        </li>
-        <li>
-          Security: Work that provides one with the certainty of having a job,
-          even in difficult economic times.
-        </li>
-        <li>
-          Co-Workers: Work that connects one with fellow workers who are liked.
-        </li>
-        <li>
-          Aesthetic: Work that permits one to be surrounded by beautiful things
-          and contribute beauty to the world.
-        </li>
-        <li>Prestige: Work that gives one standing in the eyes of others.</li>
-      </ul>
+      <ul id="value_descriptions"></ul>
     </div>
 
     <div>
